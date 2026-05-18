@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/Product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        background: #fff5f7;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* TITLE */
+    .page-title {
+        background: linear-gradient(135deg, #ffd6e0, #ffeef3);
+        padding: 40px 0;
+        text-align: center;
+    }
+
+    .page-title h2 {
+        color: #d63384;
+        font-weight: 600;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+        background: #fff;
+        border: 1px solid #f8cdda;
+        border-radius: 12px;
+        padding: 15px;
+    }
+
+    .sidebar h6 {
+        color: #d63384;
+        font-weight: 600;
+    }
+
+    .form-check-input:checked {
+        background-color: #ff85a2;
+        border-color: #ff85a2;
+    }
+
+    /* PRODUCT */
+    .product-card {
+        background: #fff;
+        border: 1px solid #ffe0ea;
+        border-radius: 12px;
+        padding: 10px;
+        position: relative;
+        transition: 0.3s;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 20px rgba(214, 51, 132, 0.15);
+    }
+
+    /* IMAGE */
+    .product-img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+    }
+
+    /* BADGE */
+    .badge-sale {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: #ff4d88;
+    }
+
+    .badge-new {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #20c997;
+    }
+
+    /* PRICE */
+    .price {
+        color: #ff4d88;
+        font-weight: bold;
+    }
+
+    .old-price {
+        text-decoration: line-through;
+        color: #bbb;
+        font-size: 13px;
+    }
+
+    /* STAR */
+    .star {
+        color: #ffc107;
+        font-size: 13px;
+    }
+
+    /* SORT */
+    .sort-bar {
+        font-size: 14px;
+    }
+
+    /* RANGE */
+    .form-range::-webkit-slider-thumb {
+        background: #ff85a2;
+    }
+
+    /* TAG */
+    .tag {
+        display: inline-block;
+        background: #ffe4ec;
+        padding: 4px 8px;
+        margin: 3px;
+        border-radius: 10px;
+        font-size: 12px;
+    }
+</style>
+
+
+<body>
+
+    <form action="" id="login" class="p-4">
+        <div class="x">
+            x
+        </div>
+        <div class="row text-center">
+            <h2>Đăng Nhập</h2>
+        </div>
+        <label for="">Tài khoản</label>
+        <input type="text" style="width: 100%;">
+
+        <label for="">Password</label>
+        <input type="password" style="width: 100%;">
+        <div class="row text-center mt-3">
+            <div class="div">
+                <button style="width: 150px; " class="btn btn-primary">Đăng Nhập</button>
+            </div>
+        </div>
+    </form>
+
+
+    <header>
+        <div class="row frame-header">
+            <div class="row">
+                <div class="col-md-4 cch text-center">HOTLINE: 0903456781</div>
+                <div class="col-md-4 cch text-center" id="btn-login">Đăng nhập</div>
+                <div class="col-md-4 cch text-center">Giỏ hàng</div>
+
+                <!-- <div class="col-md-4 cch text-center"><button type="button" class="btn btn-info">
+                        <i class="fa-solid fa-cart-shopping"></i> 
+                    </button>
+                </div> -->
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #fff;">
+                <div class="container-fluid">
+
+                    <!-- Logo -->
+                    <a class="navbar-brand d-flex align-items-center" href="#">
+                        <img src="./img/logo.png" alt="" style="width: 50px; margin-right: 10px;">
+                        <span style="color: #ff4d88; font-weight: bold;">Luna Beauty</span>
+                    </a>
+
+                    <!-- Toggle -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Menu -->
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="Product.html" style="color: #ff6f91;">Trang chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="gioithieu.html" style="color: #ff6f91;">Giới thiệu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="color: #ff6f91;">Sản phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="tintuc.html" style="color: #ff6f91;">Tin Tức</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="color: #ff6f91;">Liên hệ</a>
+                            </li>
+                        </ul>
+
+                        <!-- Search -->
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="text" placeholder="Search"
+                                style="border-radius: 20px; border: 1px solid #ffc2d1;">
+
+                            <button class="btn" type="button"
+                                style="background-color: #ff85a2; color: white; border-radius: 20px;">
+                                Search
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+
+
+
+        <!-- TITLE -->
+
+        <!-- GRID -->
+        <div class="container mt-4">
+            <div class="banner d-flex align-items-center justify-content-center">
+                <h2 class="text-dark bg-pink px-4 py-2">Sản Phẩm</h2>
+            </div>
+            <div class="row">
+
+                <!-- SIDEBAR -->
+                <div class="col-md-3">
+                    <div class="sidebar">
+
+                        <h6>Phổ biến</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label>Khuyến mãi</label><br>
+                            <input class="form-check-input" type="checkbox">
+                            <label>Bán chạy</label><br>
+                            <input class="form-check-input" type="checkbox">
+                            <label>Mới nhât</label>
+                        </div>
+
+                        <hr>
+
+                        <h6>Giá</h6>
+                        <input type="range" class="form-range">
+
+                        <hr>
+
+                        <h6>Danh mục</h6>
+                        <div class="form-check"><input class="form-check-input"> Makeup</div>
+                        <div class="form-check"><input class="form-check-input"> Skin care</div>
+                        <div class="form-check"><input class="form-check-input"> Chăm sóc cơ thể</div>
+                        <div class="form-check"><input class="form-check-input"> Chăm sóc </div>
+
+                        <hr>
+
+                        <h6>Từ khóa phổ biến</h6>
+                        <div>
+                            <span class="tag">Tẩy trang</span>
+                            <span class="tag">Kem chống nắng</span>
+                            <span class="tag">Sữa rửa mặt</span>
+                        </div>
+
+                        <hr>
+
+                        <h6>Thương hiệu</h6>
+                        <div class="form-check"><input class="form-check-input"> Cocoon</div>
+                        <div class="form-check"><input class="form-check-input"> CeraVe</div>
+                        <div class="form-check"><input class="form-check-input"> Eucerin</div>
+                        <div class="form-check"><input class="form-check-input"> Schlumberger®</div>
+                        <div class="form-check"><input class="form-check-input"> L'Oreal</div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Hiển thị 1–12 của 32 kết quả</span>
+                        <select class="form-select w-auto">
+                            <option>Sắp xếp mặc định</option>
+                            <option>Giá tăng</option>
+                            <option>Giá giảm</option>
+                        </select>
+                    </div>
+
+                    <div class="row g-3">
+
+                        <!-- ITEM -->
+                        <div class="col-md-4">
+                            <div class="product-card text-center">
+                                <span class="badge badge-sale">SALE</span>
+                                <img src="./img/taytrang (5).jpg" class="product-img">
+                                <h6>Tẩy Trang Simple</h6>
+                                <div class="star">★★★★★</div>
+                                <div class="price">4,200,000đ</div>
+                                <a href="#" class="btn btn-primary">Mua ngay</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="product-card text-center">
+                                <span class="badge badge-new">NEW</span>
+                                <img src="./img/lotmini.jpg" class="product-img">
+                                <h6>Lót Bobbi Brown minisize</h6>
+                                <div class="star">★★★★☆</div>
+                                <div class="price">2,600,000đ</div>
+                                <a href="#" class="btn btn-primary">Mua ngay</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="product-card text-center">
+                                <img src="./img/kcn6.jpg" class="product-img">
+                                <h6>Kem Chống Nắng Beplain</h6>
+                                <div class="star">★★★★★</div>
+                                <div class="price">2,600,000đ</div>
+                                <a href="#" class="btn btn-primary">Mua ngay</a>
+                            </div>
+                        </div>
+
+                        <!-- thêm dòng -->
+                        <div class="col-md-4">
+                            <div class="product-card text-center">
+                                <span class="badge badge-sale">SALE</span>
+                                <img src="./img/combo.jpg" class="product-img">
+                                <h6>Combo dưỡng sáng L'Oreal</h6>
+                                <div class="star">★★★★★</div>
+                                <div class="price">4,800,000đ</div>
+                                <a href="#" class="btn btn-primary">Mua ngay</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="product-card text-center">
+                                <img src="./img/taytrang (3).jpg" class="product-img">
+                                <h6>Tẩy Trang La Roche-Posay</h6>
+                                <div class="star">★★★★☆</div>
+                                <div class="price">3,200,000đ</div>
+                                <a href="#" class="btn btn-primary">Mua ngay</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="product-card text-center">
+                                <span class="badge badge-new">HOT</span>
+                                <img src="./img/xitkhoang2.jpg" class="product-img">
+                                <h6>Xịt khoáng d'Alba</h6>
+                                <div class="star">★★★★★</div>
+                                <div class="price">2,900,000đ</div>
+                                <a href="#" class="btn btn-primary">Mua ngay</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-3">
+                <div class="product-card text-center">
+                    <span class="badge badge-sale">SALE</span>
+                    <img src="./img/suaruamat (3).jpg" class="product-img">
+                    <h6>Sauwr Rửa Mặt Cetaphil</h6>
+                    <div class="star">★★★★★</div>
+                    <div class="price">2,900,000đ</div>
+                    <a href="#" class="btn btn-primary">Mua ngay</a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="product-card text-center">
+                    <span class="badge badge-sale">SALE</span>
+                    <img src="./img/xitkhoa4.jpg" class="product-img">
+                    <h6>Xịt khoá Fixx</h6>
+                    <div class="star">★★★★☆</div>
+                    <div class="price">2,900,000đ</div>
+                    <a href="#" class="btn btn-primary">Mua ngay</a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="product-card text-center">
+                    <img src="./img/suaruamat (7).jpg" class="product-img">
+                    <h6>Sữa Rửa Mặt La Roche-Posay</h6>
+                    <div class="star">★★★★★</div>
+                    <div class="price">2,900,000đ</div>
+                    <a href="#" class="btn btn-primary">Mua ngay</a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="product-card text-center">
+                    <img src="./img/serum.jpg" class="product-img">
+                    <h6>Serum Torriden</h6>
+                    <div class="star">★★★★★</div>
+                    <div class="price">2,900,000đ</div>
+                    <a href="#" class="btn btn-primary">Mua ngay</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row g-3">
+
+            <!-- ITEM -->
+            <div class="col-md-3">
+                <div class="product-card text-center">
+                    <span class="badge badge-sale">SALE</span>
+                    <img src="./img/suaruamat (5).jpg" class="product-img">
+                    <h6>Sữa Rửa Mặt Nghệ Cocoon</h6>
+                    <div class="star">★★★★★</div>
+                    <div class="price">2,900,000đ</div>
+                    <a href="#" class="btn btn-primary">Mua ngay</a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="product-card text-center">
+                    <span class="badge badge-sale">SALE</span>
+                    <img src="./img/xitkhoang3.jpg" class="product-img">
+                    <h6>Xịt Khoáng d'Alba</h6>
+                    <div class="star">★★★★☆</div>
+                    <div class="price">2,900,000đ</div>
+                    <a href="#" class="btn btn-primary">Mua ngay</a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="product-card text-center">
+                    <img src="./img/xitkhoa1.jpg" class="product-img">
+                    <h6>Xịt Khoá 3ce</h6>
+                    <div class="star">★★★★★</div>
+                    <div class="price">2,900,000đ</div>
+                    <a href="#" class="btn btn-primary">Mua ngay</a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="product-card text-center">
+                    <img src="./img/kcn5.jpg" class="product-img">
+                    <h6>Kem Chống Nắng d'Alba</h6>
+                    <div class="star">★★★★★</div>
+                    <div class="price">2,900,000đ</div>
+                    <a href="#" class="btn btn-primary">Mua ngay</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="d-flex justify-content-center mt-4">
+            <ul class="pagination">
+                <li class="page-item active"><a class="page-link">1</a></li>
+                <li class="page-item"><a class="page-link">2</a></li>
+                <li class="page-item"><a class="page-link">3</a></li>
+                <li class="page-item"><a class="page-link">→</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    <!-- SCROLL TOP -->
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})"
+        style="position:fixed;bottom:20px;right:20px;background:#111;color:#fff;border:none;width:40px;height:40px;border-radius:5px;">
+        ↑
+    </button>
+
+
+    </div>
+    <footer class="footer p-3">
+        <div class="row">
+
+
+            <div class="col-md-4">
+                <h3>Luna</h3>
+                <p>
+                    Hệ thống cửa hàng điện thoại chính hãng,
+                    giá tốt nhất thị trường. Cam kết chất lượng
+                    và dịch vụ hàng đầu.
+                </p>
+            </div>
+
+
+            <div class="col-md-4">
+                <h4>Liên kết nhanh</h4>
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Sản phẩm</a></li>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4">
+                <h4>Liên hệ</h4>
+                <p><i class="fa-solid fa-location-dot"></i> TP.HCM</p>
+                <p><i class="fa-solid fa-phone"></i> 1900 9999</p>
+                <p><i class="fa-solid fa-envelope"></i> lunabeauty@gmail.com</p>
+
+                <div class="social">
+                    <a href="https://www.facebook.com/share/1BThNfgn31/"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.google.com/maps?q=Trường+Cao+đẳng+Kinh+tế+-+Kỹ+thuật+TP.HCM"><i
+                            class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://zalo.me/84902370650"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="tel:+84902370650"><i class="fa-solid fa-phone"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" style="text-align: center;">
+            © 2026 Luna Beautifying. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn-login").click(function () {
+                $("#login").toggle();
+            })
+        })
+        $(document).ready(function () {
+            $(".x").click(function () {
+                $("#login").hide();
+            })
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#login").submit(function () {
+                event.preventDefault();
+
+                let user = $("#user").val();
+                let password = $("#password").val();
+
+                console.log(user);
+                console.log(password);
+
+                if (user == "" || password == "") {
+                    alert("ban chua nhap user và password")
+                } else {
+                    if (user == "admin" && password == "1234") {
+                        alert("ban da dang nhap thanh cong")
+                    }
+                }
+            })
+
+        });
+
+    </script>
+
+</body>
+
+</html>
